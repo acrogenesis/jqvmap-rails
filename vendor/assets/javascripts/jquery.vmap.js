@@ -1,3 +1,4 @@
+
 /*!
  * jQVMap Version 1.0
  *
@@ -67,7 +68,7 @@
       this.css({ position: 'relative', overflow: 'hidden' });
 
       map = new WorldMap(defaultParams);
-
+      map.setScale(0.54);
       this.data('mapObject', map);
 
       for (var e in apiEvents) {
@@ -463,7 +464,7 @@
       var path = e.target;
       var code = e.target.id.split('_').pop();
 
-      jQuery(params.container).trigger('regionClick.jqvmap', [code, mapData.pathes[code].name]);
+      jQuery(params.container).trigger('regionClick.jqvmap', [code, mapData.pathes[code].name, mapData.pathes[code].url]);
       if (!regionClickEvent.isDefaultPrevented()) {
         if (map.selectedRegions.indexOf(code) !== -1) {
           map.deselect(code, path);
